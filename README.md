@@ -14,7 +14,7 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
 1. Add folder YALSunnyRefreshControll to your project.
 2. Implement header and setup YALSunnyRefreshControl as a property.
 3. Init and associate YALSunnyRefreshControl with your UITableView or UICollectionView.
-4. Add images from Images.xcassets folder in Example Project
+4. Add images from Images.xcassets folder in Sample Project.
 
 ```objective-c
 #import "YALSunnyRefreshControl.h"
