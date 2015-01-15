@@ -31,19 +31,30 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
     ```
 
 3. In your `onCreate` method refer to the View and setup OnRefreshListener.
-	```java
-    mPullToRefreshView = (PullToRefreshView) findViewById(R.id.pull_to_refresh);
-    mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
-        @Override
-        public void onRefresh() {
-            mPullToRefreshView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mPullToRefreshView.setRefreshing(false);
-                }
-            }, REFRESH_DELAY);
-        }
-     });
+	```objective-c
+   - (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupRefreshControl];
+}
+
+-(void)setupRefreshControl{
+    
+    self.sunnyRefreshControl = [YALSunnyRefreshControl attachToScrollView:self.tableView
+                                                                  target:self
+                                                           refreshAction:@selector(sunnyControlDidStartAnimation)];
+    
+}
+
+-(void)sunnyControlDidStartAnimation{
+    
+    // start loading something
+}
+
+-(IBAction)endAnimationHandle{
+    
+    [self.sunnyRefreshControl endRefreshing];
+}
+
      ```
 
 #Customization
