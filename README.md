@@ -11,27 +11,12 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
 
 *For a working implementation, Have a look at the Sample Project - sample*
 
-1. Include the library as local library project.
-2. Include the PullToRefreshView widget in your layout.
+1. Add folder YALSunnyRefreshControll to your project.
+2. Setup YALSunnyRefreshControl as a property
+3. Init and associate YALSunnyRefreshControl with your UITableView or UICollectionView
 
-	```xml
-    <com.yalantis.pulltorefresh.library.PullToRefreshView
-        android:id="@+id/pull_to_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/list_view"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </com.yalantis.pulltorefresh.library.PullToRefreshView>
-    ```
-
-3. In your `onCreate` method refer to the View and setup OnRefreshListener.
-	```objective-c
+```objective-c
+	@property (nonatomic,strong) YALSunnyRefreshControl *sunnyRefreshControl;
    - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefreshControl];
@@ -59,24 +44,14 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
 
 #Customization
 
-There is one attribute which applicable to `PullToRefreshView`.
-
-   * `type` type of refresh animation
-   * You can also set this attribute from your java code by calling `setRefreshStyle(int type)`
-
 To customize drawables you can change:
    * sun.png - Sun image
    * sky.png - background image
    * buildings.png - foreground image
 
-# Misc
-If you need to change progress state: 
-```java
-	mPullToRefreshView.setRefreshing(boolean isRefreshing)
-```
 #Compatibility
   
-  * Android Gelly Bean 4.1+
+  * IOS 7,8
   
 # Changelog
 
