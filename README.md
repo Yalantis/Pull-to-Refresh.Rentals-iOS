@@ -12,11 +12,14 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
 *For a working implementation, Have a look at the Sample Project - sample*
 
 1. Add folder YALSunnyRefreshControll to your project.
-2. Setup YALSunnyRefreshControl as a property
-3. Init and associate YALSunnyRefreshControl with your UITableView or UICollectionView
+2. Implement header and setup YALSunnyRefreshControl as a property.
+3. Init and associate YALSunnyRefreshControl with your UITableView or UICollectionView.
 
 ```objective-c
-	@property (nonatomic,strong) YALSunnyRefreshControl *sunnyRefreshControl;
+#import "YALSunnyRefreshControl.h"
+
+@property (nonatomic,strong) YALSunnyRefreshControl *sunnyRefreshControl;
+
    - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefreshControl];
@@ -40,7 +43,7 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
     [self.sunnyRefreshControl endRefreshing];
 }
 
-     ```
+```
 
 #Customization
 
