@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD18FD971A6804C20080287C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD961A6804C20080287C /* main.m */; };
+		AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD991A6804C20080287C /* AppDelegate.m */; };
+		AD18FDA01A6804C20080287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD18FD9E1A6804C20080287C /* Main.storyboard */; };
+		AD18FDA21A6804C20080287C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD18FDA11A6804C20080287C /* Images.xcassets */; };
+		AD18FDA51A6804C20080287C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD18FDA31A6804C20080287C /* LaunchScreen.xib */; };
+		AD18FDB11A6804C20080287C /* YALRentalPullToRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDB01A6804C20080287C /* YALRentalPullToRefreshTests.m */; };
+		AD18FDBD1A68054B0080287C /* YALExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDBC1A68054B0080287C /* YALExampleViewController.m */; };
+		AD18FDCE1A680D9C0080287C /* YALSunnyRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */; };
+		AD18FDCF1A680D9C0080287C /* YALSunnyRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD18FDAB1A6804C20080287C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD18FD891A6804C10080287C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD18FD901A6804C20080287C;
+			remoteInfo = YALRentalPullToRefresh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YALRentalPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD18FD951A6804C20080287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD18FD961A6804C20080287C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD18FD981A6804C20080287C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD18FD991A6804C20080287C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD18FD9F1A6804C20080287C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD18FDA11A6804C20080287C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AD18FDA41A6804C20080287C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AD18FDAA1A6804C20080287C /* YALRentalPullToRefreshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YALRentalPullToRefreshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD18FDAF1A6804C20080287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD18FDB01A6804C20080287C /* YALRentalPullToRefreshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YALRentalPullToRefreshTests.m; sourceTree = "<group>"; };
+		AD18FDBB1A68054B0080287C /* YALExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALExampleViewController.h; sourceTree = "<group>"; };
+		AD18FDBC1A68054B0080287C /* YALExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALExampleViewController.m; sourceTree = "<group>"; };
+		AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSunnyRefreshControl.h; sourceTree = "<group>"; };
+		AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSunnyRefreshControl.m; sourceTree = "<group>"; };
+		AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YALSunnyRefreshControl.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD18FD8E1A6804C20080287C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD18FDA71A6804C20080287C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD18FD881A6804C10080287C = {
+			isa = PBXGroup;
+			children = (
+				AD18FD931A6804C20080287C /* YALRentalPullToRefresh */,
+				AD18FDAD1A6804C20080287C /* YALRentalPullToRefreshTests */,
+				AD18FD921A6804C20080287C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD18FD921A6804C20080287C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */,
+				AD18FDAA1A6804C20080287C /* YALRentalPullToRefreshTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD18FD931A6804C20080287C /* YALRentalPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FDCA1A680D9C0080287C /* YALSunnyRefreshControll */,
+				AD18FDBA1A68054B0080287C /* ExampleViewController */,
+				AD18FD981A6804C20080287C /* AppDelegate.h */,
+				AD18FD991A6804C20080287C /* AppDelegate.m */,
+				AD18FD9E1A6804C20080287C /* Main.storyboard */,
+				AD18FDA11A6804C20080287C /* Images.xcassets */,
+				AD18FDA31A6804C20080287C /* LaunchScreen.xib */,
+				AD18FD941A6804C20080287C /* Supporting Files */,
+			);
+			path = YALRentalPullToRefresh;
+			sourceTree = "<group>";
+		};
+		AD18FD941A6804C20080287C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FD951A6804C20080287C /* Info.plist */,
+				AD18FD961A6804C20080287C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD18FDAD1A6804C20080287C /* YALRentalPullToRefreshTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FDB01A6804C20080287C /* YALRentalPullToRefreshTests.m */,
+				AD18FDAE1A6804C20080287C /* Supporting Files */,
+			);
+			path = YALRentalPullToRefreshTests;
+			sourceTree = "<group>";
+		};
+		AD18FDAE1A6804C20080287C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FDAF1A6804C20080287C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD18FDBA1A68054B0080287C /* ExampleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FDBB1A68054B0080287C /* YALExampleViewController.h */,
+				AD18FDBC1A68054B0080287C /* YALExampleViewController.m */,
+			);
+			path = ExampleViewController;
+			sourceTree = "<group>";
+		};
+		AD18FDCA1A680D9C0080287C /* YALSunnyRefreshControll */ = {
+			isa = PBXGroup;
+			children = (
+				AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */,
+				AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */,
+				AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */,
+			);
+			name = YALSunnyRefreshControll;
+			path = ../../YALSunnyRefreshControll;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD18FD901A6804C20080287C /* YALRentalPullToRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD18FDB41A6804C20080287C /* Build configuration list for PBXNativeTarget "YALRentalPullToRefresh" */;
+			buildPhases = (
+				AD18FD8D1A6804C20080287C /* Sources */,
+				AD18FD8E1A6804C20080287C /* Frameworks */,
+				AD18FD8F1A6804C20080287C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YALRentalPullToRefresh;
+			productName = YALRentalPullToRefresh;
+			productReference = AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD18FDA91A6804C20080287C /* YALRentalPullToRefreshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD18FDB71A6804C20080287C /* Build configuration list for PBXNativeTarget "YALRentalPullToRefreshTests" */;
+			buildPhases = (
+				AD18FDA61A6804C20080287C /* Sources */,
+				AD18FDA71A6804C20080287C /* Frameworks */,
+				AD18FDA81A6804C20080287C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD18FDAC1A6804C20080287C /* PBXTargetDependency */,
+			);
+			name = YALRentalPullToRefreshTests;
+			productName = YALRentalPullToRefreshTests;
+			productReference = AD18FDAA1A6804C20080287C /* YALRentalPullToRefreshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD18FD891A6804C10080287C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Konstantin Safronov";
+				TargetAttributes = {
+					AD18FD901A6804C20080287C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					AD18FDA91A6804C20080287C = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = AD18FD901A6804C20080287C;
+					};
+				};
+			};
+			buildConfigurationList = AD18FD8C1A6804C10080287C /* Build configuration list for PBXProject "YALRentalPullToRefresh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD18FD881A6804C10080287C;
+			productRefGroup = AD18FD921A6804C20080287C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD18FD901A6804C20080287C /* YALRentalPullToRefresh */,
+				AD18FDA91A6804C20080287C /* YALRentalPullToRefreshTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD18FD8F1A6804C20080287C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD18FDA01A6804C20080287C /* Main.storyboard in Resources */,
+				AD18FDA51A6804C20080287C /* LaunchScreen.xib in Resources */,
+				AD18FDCF1A680D9C0080287C /* YALSunnyRefreshControl.xib in Resources */,
+				AD18FDA21A6804C20080287C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD18FDA81A6804C20080287C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD18FD8D1A6804C20080287C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */,
+				AD18FD971A6804C20080287C /* main.m in Sources */,
+				AD18FDCE1A680D9C0080287C /* YALSunnyRefreshControl.m in Sources */,
+				AD18FDBD1A68054B0080287C /* YALExampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD18FDA61A6804C20080287C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD18FDB11A6804C20080287C /* YALRentalPullToRefreshTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD18FDAC1A6804C20080287C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD18FD901A6804C20080287C /* YALRentalPullToRefresh */;
+			targetProxy = AD18FDAB1A6804C20080287C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD18FD9E1A6804C20080287C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD18FD9F1A6804C20080287C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AD18FDA31A6804C20080287C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD18FDA41A6804C20080287C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD18FDB21A6804C20080287C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AD18FDB31A6804C20080287C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD18FDB51A6804C20080287C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergiy Fesenko (Y8JZQ7JQ9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergiy Fesenko (Y8JZQ7JQ9A)";
+				INFOPLIST_FILE = YALRentalPullToRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0a4e7722-6850-443a-8898-a38f19f04f46";
+			};
+			name = Debug;
+		};
+		AD18FDB61A6804C20080287C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergiy Fesenko (Y8JZQ7JQ9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergiy Fesenko (Y8JZQ7JQ9A)";
+				INFOPLIST_FILE = YALRentalPullToRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0a4e7722-6850-443a-8898-a38f19f04f46";
+			};
+			name = Release;
+		};
+		AD18FDB81A6804C20080287C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YALRentalPullToRefreshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YALRentalPullToRefresh.app/YALRentalPullToRefresh";
+			};
+			name = Debug;
+		};
+		AD18FDB91A6804C20080287C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YALRentalPullToRefreshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YALRentalPullToRefresh.app/YALRentalPullToRefresh";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD18FD8C1A6804C10080287C /* Build configuration list for PBXProject "YALRentalPullToRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD18FDB21A6804C20080287C /* Debug */,
+				AD18FDB31A6804C20080287C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD18FDB41A6804C20080287C /* Build configuration list for PBXNativeTarget "YALRentalPullToRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD18FDB51A6804C20080287C /* Debug */,
+				AD18FDB61A6804C20080287C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD18FDB71A6804C20080287C /* Build configuration list for PBXNativeTarget "YALRentalPullToRefreshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD18FDB81A6804C20080287C /* Debug */,
+				AD18FDB91A6804C20080287C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD18FD891A6804C10080287C /* Project object */;
+}
