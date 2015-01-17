@@ -20,6 +20,8 @@ static const CGFloat SunBottomPoint = 55.f;
 static const CGFloat SkyTopShift = 15.f;
 static const CGFloat SkyDefaultShift = -70.f;
 
+static const CGFloat BuildingDefaultHeight = 72;
+
 static const CGFloat CircleAngle = 360.f;
 static const CGFloat BuildingsMaximumScale = 1.7f;
 static const CGFloat SunAndSkyMinimumScale = 0.85f;
@@ -35,6 +37,8 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *skyLeadingConstraint;
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *skyTrailingConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buildingsHeightConstraint;
 
 @property (nonatomic,weak) IBOutlet UIImageView *sunImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *skyImageView;
@@ -175,9 +179,11 @@ static const CGFloat DefaultScreenWidth = 320.f;
     
     if(buildigsScaleRatio <= BuildingsMaximumScale){
         
+        CGFloat extraOffset = ABS(self.scrollView.contentOffset.y) - DefaultHeight;
+        self.buildingsHeightConstraint.constant = BuildingDefaultHeight + extraOffset;
         [self.buildingsImageView setTransform:CGAffineTransformMakeScale(buildigsScaleRatio,1.f)];
-        CGFloat skyScale = (SunAndSkyMinimumScale + (1 - buildigsScaleRatio));
         
+        CGFloat skyScale = (SunAndSkyMinimumScale + (1 - buildigsScaleRatio));
         [UIView animateWithDuration:SkyTransformAnimationDuration animations:^{
             
             [self.skyImageView setTransform:CGAffineTransformMakeScale(skyScale,skyScale)];
