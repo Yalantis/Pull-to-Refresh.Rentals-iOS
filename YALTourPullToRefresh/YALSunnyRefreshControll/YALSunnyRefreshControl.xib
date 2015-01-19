@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -15,7 +16,6 @@
                     <rect key="frame" x="-90" y="-70" width="500" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="3Vs-vw-onD"/>
-                        <constraint firstAttribute="width" constant="500" id="xpM-1j-McZ"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-7Z-vg6">
@@ -28,7 +28,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buildings" translatesAutoresizingMaskIntoConstraints="NO" id="0YF-rR-4Bq">
                     <rect key="frame" x="0.0" y="28" width="320" height="72"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="320" id="Arm-kC-bS2"/>
                         <constraint firstAttribute="height" constant="72" id="VvA-gW-Ha2"/>
                     </constraints>
                 </imageView>
@@ -36,7 +35,6 @@
             <color key="backgroundColor" red="0.43089535361842107" green="0.50984272203947367" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Gbu-7Z-vg6" secondAttribute="trailing" priority="999" constant="173" id="5yV-rD-hEf"/>
-                <constraint firstAttribute="bottom" secondItem="0YF-rR-4Bq" secondAttribute="bottom" id="601-GJ-ZHH"/>
                 <constraint firstItem="4k7-i8-1v9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-70" id="D0u-Qx-aV1"/>
                 <constraint firstItem="Gbu-7Z-vg6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="MFX-Kd-001"/>
                 <constraint firstItem="4k7-i8-1v9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" multiplier="1.2" constant="-90" id="N0J-j0-zoT"/>
@@ -49,6 +47,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="buildingsHeightConstraint" destination="VvA-gW-Ha2" id="UJa-3G-Gus"/>
                 <outlet property="buildingsImageView" destination="0YF-rR-4Bq" id="Y4g-GA-mQz"/>
                 <outlet property="skyImageView" destination="4k7-i8-1v9" id="z5B-U9-wqm"/>
                 <outlet property="skyLeadingConstraint" destination="N0J-j0-zoT" id="FfP-g3-PwH"/>
