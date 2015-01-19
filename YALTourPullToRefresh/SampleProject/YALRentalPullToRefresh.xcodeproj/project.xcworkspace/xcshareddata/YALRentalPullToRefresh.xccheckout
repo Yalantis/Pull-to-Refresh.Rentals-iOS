@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B70FD4B6-C78C-484D-9320-478A0AC47979</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YALRentalPullToRefresh</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C0D6BD73FEF2380E1DE2ED39748D201DE7E64D99</key>
+		<string>https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YALTourPullToRefresh/SampleProject/YALRentalPullToRefresh.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C0D6BD73FEF2380E1DE2ED39748D201DE7E64D99</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C0D6BD73FEF2380E1DE2ED39748D201DE7E64D99</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C0D6BD73FEF2380E1DE2ED39748D201DE7E64D99</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pull-to-Refresh.Rentals-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -136,7 +136,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
           initialSpringVelocity:AnimationVelosity
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         [self.scrollView setContentOffset:CGPointMake(0.f, 0.f)];
                          [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
                      } completion:^(BOOL finished) {
                          
