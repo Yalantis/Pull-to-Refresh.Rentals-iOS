@@ -119,15 +119,18 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidOffsetChanges){
-        
-        [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
-        self.forbidOffsetChanges = YES;
+        [self startRefreshing];
     }
     
     if(!self.forbidSunSet){
         [self setupSunHeightAboveHorisont];
         [self setupSkyPosition];
     }
+}
+
+- (void)startRefreshing {
+    [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
+    self.forbidOffsetChanges = YES;
 }
 
 -(void)endRefreshing{

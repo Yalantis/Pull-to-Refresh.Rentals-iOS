@@ -13,6 +13,9 @@
 + (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView
                                       target:(id)target
                                refreshAction:(SEL)refreshAction;
+
+- (void)startRefreshing;
+
 - (void)endRefreshing;
 
 @end
