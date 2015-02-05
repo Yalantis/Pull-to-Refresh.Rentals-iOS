@@ -111,10 +111,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
         }
         [self scaleItems];
         [self rotateSunInfinitly];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.target performSelector:self.action withObject:nil];
-#pragma clang diagnostic pop
         self.forbidSunSet = YES;
     }
    
@@ -131,6 +127,11 @@ static const CGFloat DefaultScreenWidth = 320.f;
 - (void)startRefreshing {
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
     self.forbidOffsetChanges = YES;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.target performSelector:self.action withObject:nil];
+#pragma clang diagnostic pop
+
 }
 
 -(void)endRefreshing{
