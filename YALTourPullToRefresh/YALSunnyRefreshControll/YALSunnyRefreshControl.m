@@ -30,7 +30,7 @@ static const CGFloat SkyTransformAnimationDuration = 0.5f;
 static const CGFloat SunRotationAnimationDuration = 0.9f;
 static const CGFloat DefaultScreenWidth = 320.f;
 
-@interface YALSunnyRefreshControl () <UIScrollViewDelegate>
+@interface YALSunnyRefreshControl () 
 
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *sunTopConstraint;
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *skyTopConstraint;
