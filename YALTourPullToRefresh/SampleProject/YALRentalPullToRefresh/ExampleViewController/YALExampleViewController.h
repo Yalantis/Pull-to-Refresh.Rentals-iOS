@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YALExampleViewController : UITableViewController
+@interface YALExampleViewController : UITableViewController <UITableViewDelegate>
 
 
 @end

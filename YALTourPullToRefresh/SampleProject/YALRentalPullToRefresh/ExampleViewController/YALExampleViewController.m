@@ -39,17 +39,17 @@
                                                                   target:self
                                                            refreshAction:@selector(sunnyControlDidStartAnimation)];
 }
-
 -(void)sunnyControlDidStartAnimation{
     
     // start loading something
 }
-
 -(IBAction)endAnimationHandle{
     
     [self.sunnyRefreshControl endRefreshing];
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%d index is clicked",indexPath.row);
+}
 
 
 @end
