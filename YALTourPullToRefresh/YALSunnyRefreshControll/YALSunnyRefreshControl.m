@@ -70,7 +70,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [refreshControl.scrollView addObserver:refreshControl forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     refreshControl.target = target;
     refreshControl.action = refreshAction;
-    [scrollView setDelegate:refreshControl];
+//    [scrollView setDelegate:refreshControl]; no need to set because it breaks other connections
     [refreshControl setFrame:CGRectMake(0.f,
                                         0.f,
                                         scrollView.frame.size.width,
@@ -145,6 +145,8 @@ static const CGFloat DefaultScreenWidth = 320.f;
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
+                         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 0)];
+
                      } completion:^(BOOL finished) {
                          
                          self.forbidSunSet = NO;
@@ -215,14 +217,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
     self.isSunRotating = NO;
     self.forbidSunSet = NO;
     [self.sunImageView.layer removeAnimationForKey:@"rotationAnimation"];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    
-    if(self.forbidOffsetChanges){
-        
-        [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
-    }
 }
 
 @end
