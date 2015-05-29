@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -34,15 +34,15 @@
             </subviews>
             <color key="backgroundColor" red="0.43089535361842107" green="0.50984272203947367" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Gbu-7Z-vg6" secondAttribute="trailing" priority="999" constant="173" id="5yV-rD-hEf"/>
+                <constraint firstAttribute="right" secondItem="Gbu-7Z-vg6" secondAttribute="right" priority="999" constant="173" id="5yV-rD-hEf"/>
                 <constraint firstItem="4k7-i8-1v9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-70" id="D0u-Qx-aV1"/>
                 <constraint firstItem="Gbu-7Z-vg6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="MFX-Kd-001"/>
-                <constraint firstItem="4k7-i8-1v9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" multiplier="1.2" constant="-90" id="N0J-j0-zoT"/>
-                <constraint firstItem="0YF-rR-4Bq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Oye-in-krS"/>
-                <constraint firstAttribute="trailing" secondItem="0YF-rR-4Bq" secondAttribute="trailing" id="XO6-LF-Rmt"/>
-                <constraint firstItem="Gbu-7Z-vg6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="trailing" multiplier="0.33" id="Z3J-hG-Ako"/>
+                <constraint firstItem="4k7-i8-1v9" firstAttribute="left" secondItem="iN0-l3-epB" secondAttribute="left" multiplier="1.2" constant="-90" id="N0J-j0-zoT"/>
+                <constraint firstItem="0YF-rR-4Bq" firstAttribute="left" secondItem="iN0-l3-epB" secondAttribute="left" id="Oye-in-krS"/>
+                <constraint firstAttribute="right" secondItem="0YF-rR-4Bq" secondAttribute="right" id="XO6-LF-Rmt"/>
+                <constraint firstItem="Gbu-7Z-vg6" firstAttribute="left" secondItem="iN0-l3-epB" secondAttribute="right" multiplier="0.33" id="Z3J-hG-Ako"/>
                 <constraint firstItem="0YF-rR-4Bq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="aXQ-n7-HHe"/>
-                <constraint firstAttribute="trailing" secondItem="4k7-i8-1v9" secondAttribute="trailing" constant="-90" id="hkk-XQ-48r"/>
+                <constraint firstAttribute="right" secondItem="4k7-i8-1v9" secondAttribute="right" constant="-90" id="hkk-XQ-48r"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
