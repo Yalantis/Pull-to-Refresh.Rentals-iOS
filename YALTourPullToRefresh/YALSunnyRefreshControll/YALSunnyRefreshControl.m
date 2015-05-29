@@ -110,12 +110,16 @@ static const CGFloat DefaultScreenWidth = 320.f;
             [self.scrollView setContentOffset:CGPointMake(0.f, -SpringTreshold)];
         }
         [self scaleItems];
-        [self rotateSunInfinitly];
+        if(!self.forbidSunSet){
+            
+            [self rotateSunInfinitly];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.target performSelector:self.action withObject:nil];
+            [self.target performSelector:self.action withObject:nil];
 #pragma clang diagnostic pop
-        self.forbidSunSet = YES;
+            self.forbidSunSet = YES;
+
+        }
     }
    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidOffsetChanges){

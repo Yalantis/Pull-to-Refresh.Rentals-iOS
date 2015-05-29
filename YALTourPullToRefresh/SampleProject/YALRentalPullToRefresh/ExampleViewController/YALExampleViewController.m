@@ -42,6 +42,7 @@
 
 -(void)sunnyControlDidStartAnimation{
     
+    NSLog(@"sunnyControlDidStartAnimation");
     // start loading something
 }
 
