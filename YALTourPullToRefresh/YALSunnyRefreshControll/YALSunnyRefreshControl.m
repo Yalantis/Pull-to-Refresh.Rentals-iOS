@@ -115,7 +115,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
             [self rotateSunInfinitly];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [self.target performSelector:self.action withObject:nil];
+            [self.target performSelector:self.action withObject:self];
 #pragma clang diagnostic pop
             self.forbidSunSet = YES;
 
