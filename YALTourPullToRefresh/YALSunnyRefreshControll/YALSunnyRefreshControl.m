@@ -30,7 +30,7 @@ static const CGFloat SkyTransformAnimationDuration = 0.5f;
 static const CGFloat SunRotationAnimationDuration = 0.9f;
 static const CGFloat DefaultScreenWidth = 320.f;
 
-@interface YALSunnyRefreshControl () <UIScrollViewDelegate>
+@interface YALSunnyRefreshControl ()
 
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *sunTopConstraint;
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *skyTopConstraint;
@@ -48,7 +48,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic) SEL action;
 @property (nonatomic,assign) BOOL forbidSunSet;
 @property (nonatomic,assign) BOOL isSunRotating;
-@property (nonatomic,assign) BOOL forbidOffsetChanges;
+@property (nonatomic,assign) BOOL forbidContentInsetChanges;
 
 @end
 
@@ -70,7 +70,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [refreshControl.scrollView addObserver:refreshControl forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     refreshControl.target = target;
     refreshControl.action = refreshAction;
-    [scrollView setDelegate:refreshControl];
     [refreshControl setFrame:CGRectMake(0.f,
                                         0.f,
                                         scrollView.frame.size.width,
@@ -89,7 +88,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
+-(void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context{
@@ -112,17 +111,17 @@ static const CGFloat DefaultScreenWidth = 320.f;
         [self scaleItems];
         if(!self.forbidSunSet){
             
-            [self rotateSunInfinitly];
+            [self rotateSunInfinitely];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [self.target performSelector:self.action withObject:self];
 #pragma clang diagnostic pop
             self.forbidSunSet = YES;
-
+            
         }
     }
    
-    if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidOffsetChanges){
+    if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
         [self startRefreshing];
     }
     
@@ -132,14 +131,15 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
 }
 
-- (void)startRefreshing {
+-(void)startRefreshing {
+    [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
-    self.forbidOffsetChanges = YES;
+    self.forbidContentInsetChanges = YES;
 }
 
 -(void)endRefreshing{
     
-    self.forbidOffsetChanges = NO;
+    self.forbidContentInsetChanges = NO;
     
     [UIView animateWithDuration:AnimationDuration
                           delay:0.f
@@ -148,11 +148,9 @@ static const CGFloat DefaultScreenWidth = 320.f;
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
-                     } completion:^(BOOL finished) {
-                         
-                         self.forbidSunSet = NO;
-                         [self stopSunRotating];
-                     }];
+                     } completion:nil];
+    self.forbidSunSet = NO;
+    [self stopSunRotating];
 }
 
 -(void)setupSunHeightAboveHorisont{
@@ -198,7 +196,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
 }
 
-- (void)rotateSunInfinitly{
+-(void)rotateSunInfinitely{
     
     if(!self.isSunRotating){
         self.isSunRotating = YES;
@@ -218,14 +216,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
     self.isSunRotating = NO;
     self.forbidSunSet = NO;
     [self.sunImageView.layer removeAnimationForKey:@"rotationAnimation"];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    
-    if(self.forbidOffsetChanges){
-        
-        [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
-    }
 }
 
 @end
