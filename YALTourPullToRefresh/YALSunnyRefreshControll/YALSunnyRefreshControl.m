@@ -132,6 +132,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 }
 
 -(void)startRefreshing {
+    
     [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
     self.forbidContentInsetChanges = YES;
@@ -139,8 +140,17 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 -(void)endRefreshing{
     
-    self.forbidContentInsetChanges = NO;
+    if(self.scrollView.contentOffset.y > -DefaultHeight){
+        
+        [self performSelector:@selector(returnToDefaultState) withObject:nil afterDelay:AnimationDuration];
+    }else{
+        [self returnToDefaultState];
+    }
+}
+
+-(void)returnToDefaultState{
     
+    self.forbidContentInsetChanges = NO;
     [UIView animateWithDuration:AnimationDuration
                           delay:0.f
          usingSpringWithDamping:AnimationDamping
