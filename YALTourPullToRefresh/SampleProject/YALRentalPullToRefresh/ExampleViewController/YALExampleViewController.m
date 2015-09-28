@@ -28,7 +28,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    [self.sunnyRefreshControl startRefreshing];
+    [self.sunnyRefreshControl beginRefreshing];
 }
 
 # pragma mark - YALSunyRefreshControl methods

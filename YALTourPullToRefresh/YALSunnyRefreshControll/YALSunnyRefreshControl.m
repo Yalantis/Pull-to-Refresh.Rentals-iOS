@@ -114,7 +114,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidOffsetChanges){
-        [self startRefreshing];
+        [self beginRefreshing];
     }
     
     if(!self.forbidSunSet){
@@ -123,7 +123,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
 }
 
-- (void)startRefreshing {
+- (void)beginRefreshing {
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
     self.forbidOffsetChanges = YES;
 }
