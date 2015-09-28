@@ -42,8 +42,6 @@
 }
 
 -(void)sunnyControlDidStartAnimation{
-    
-    NSLog(@"sunnyControlDidStartAnimation");
     // start loading something
 }
 
@@ -51,7 +49,5 @@
     
     [self.sunnyRefreshControl endRefreshing];
 }
-
-
 
 @end
