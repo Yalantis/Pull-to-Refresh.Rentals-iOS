@@ -52,24 +52,20 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 @implementation YALSunnyRefreshControl
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
+}
+
 -(void)dealloc{
     
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
-+ (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView {
-    
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil];
-    YALSunnyRefreshControl *refreshControl = (YALSunnyRefreshControl *)[topLevelObjects firstObject];
-
-    refreshControl.scrollView = scrollView;
-    [refreshControl.scrollView addObserver:refreshControl forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    [refreshControl setFrame:CGRectMake(0.f,
-                                        0.f,
-                                        scrollView.frame.size.width,
-                                        0.f)];
-    [scrollView addSubview:refreshControl];
-    return refreshControl;
+- (void)attachToScrollView:(UIScrollView *)scrollView {
+    self.scrollView = scrollView;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [self setFrame:CGRectMake(0.f, 0.f, scrollView.frame.size.width, 0.f)];
+    [scrollView addSubview:self];
 }
 
 -(void)awakeFromNib{

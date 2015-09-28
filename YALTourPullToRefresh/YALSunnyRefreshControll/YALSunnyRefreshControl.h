@@ -10,7 +10,7 @@
 
 @interface YALSunnyRefreshControl : UIControl
 
-+ (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView;
+- (void)attachToScrollView:(UIScrollView *)scrollView;
 
 - (void)beginRefreshing;
 
