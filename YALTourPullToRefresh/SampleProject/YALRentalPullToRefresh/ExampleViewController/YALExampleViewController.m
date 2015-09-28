@@ -28,21 +28,21 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    [self.sunnyRefreshControl startRefreshing];
+    [self.sunnyRefreshControl beginRefreshing];
 }
 
 # pragma mark - YALSunyRefreshControl methods
 
 -(void)setupRefreshControl{
     
-    self.sunnyRefreshControl = [YALSunnyRefreshControl attachToScrollView:self.tableView
-                                                                  target:self
-                                                           refreshAction:@selector(sunnyControlDidStartAnimation)];
+    self.sunnyRefreshControl = [YALSunnyRefreshControl new];
+    [self.sunnyRefreshControl addTarget:self
+                                 action:@selector(sunnyControlDidStartAnimation)
+                       forControlEvents:UIControlEventValueChanged];
+    [self.sunnyRefreshControl attachToScrollView:self.tableView];
 }
 
 -(void)sunnyControlDidStartAnimation{
-    
-    NSLog(@"sunnyControlDidStartAnimation");
     // start loading something
 }
 
@@ -50,7 +50,5 @@
     
     [self.sunnyRefreshControl endRefreshing];
 }
-
-
 
 @end
