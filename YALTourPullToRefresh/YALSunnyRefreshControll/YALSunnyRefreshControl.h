@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YALSunnyRefreshControl : UIView
+@interface YALSunnyRefreshControl : UIControl
 
 + (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView
                                       target:(id)target
