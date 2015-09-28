@@ -54,7 +54,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 -(void)dealloc{
     
-    [self removeObserver:self.scrollView forKeyPath:@"contentOffset"];
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
 + (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView {
