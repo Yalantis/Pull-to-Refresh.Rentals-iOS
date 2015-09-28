@@ -44,8 +44,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic,weak) IBOutlet UIImageView *skyImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *buildingsImageView;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, assign) id target;
-@property (nonatomic) SEL action;
 @property (nonatomic,assign) BOOL forbidSunSet;
 @property (nonatomic,assign) BOOL isSunRotating;
 @property (nonatomic,assign) BOOL forbidOffsetChanges;
@@ -59,17 +57,13 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [self removeObserver:self.scrollView forKeyPath:@"contentOffset"];
 }
 
-+ (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView
-                                      target:(id)target
-                               refreshAction:(SEL)refreshAction{
++ (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView {
     
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil];
     YALSunnyRefreshControl *refreshControl = (YALSunnyRefreshControl *)[topLevelObjects firstObject];
 
     refreshControl.scrollView = scrollView;
     [refreshControl.scrollView addObserver:refreshControl forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    refreshControl.target = target;
-    refreshControl.action = refreshAction;
     [scrollView setDelegate:refreshControl];
     [refreshControl setFrame:CGRectMake(0.f,
                                         0.f,
@@ -113,10 +107,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
         if(!self.forbidSunSet){
             
             [self rotateSunInfinitly];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [self.target performSelector:self.action withObject:self];
-#pragma clang diagnostic pop
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
             self.forbidSunSet = YES;
 
         }

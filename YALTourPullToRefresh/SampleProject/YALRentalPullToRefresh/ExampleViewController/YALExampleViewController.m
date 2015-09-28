@@ -35,9 +35,10 @@
 
 -(void)setupRefreshControl{
     
-    self.sunnyRefreshControl = [YALSunnyRefreshControl attachToScrollView:self.tableView
-                                                                  target:self
-                                                           refreshAction:@selector(sunnyControlDidStartAnimation)];
+    self.sunnyRefreshControl = [YALSunnyRefreshControl attachToScrollView:self.tableView];
+    [self.sunnyRefreshControl addTarget:self
+                                 action:@selector(sunnyControlDidStartAnimation)
+                       forControlEvents:UIControlEventValueChanged];
 }
 
 -(void)sunnyControlDidStartAnimation{
