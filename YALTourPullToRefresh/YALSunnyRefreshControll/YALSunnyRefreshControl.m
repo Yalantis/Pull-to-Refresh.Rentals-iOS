@@ -44,8 +44,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic,weak) IBOutlet UIImageView *skyImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *buildingsImageView;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, assign) id target;
-@property (nonatomic) SEL action;
 @property (nonatomic,assign) BOOL forbidSunSet;
 @property (nonatomic,assign) BOOL isSunRotating;
 @property (nonatomic,assign) BOOL forbidContentInsetChanges;
@@ -54,28 +52,20 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 @implementation YALSunnyRefreshControl
 
--(void)dealloc{
-    
-    [self removeObserver:self.scrollView forKeyPath:@"contentOffset"];
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
 }
 
-+ (YALSunnyRefreshControl*)attachToScrollView:(UIScrollView *)scrollView
-                                      target:(id)target
-                               refreshAction:(SEL)refreshAction{
+-(void)dealloc{
     
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil];
-    YALSunnyRefreshControl *refreshControl = (YALSunnyRefreshControl *)[topLevelObjects firstObject];
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
 
-    refreshControl.scrollView = scrollView;
-    [refreshControl.scrollView addObserver:refreshControl forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    refreshControl.target = target;
-    refreshControl.action = refreshAction;
-    [refreshControl setFrame:CGRectMake(0.f,
-                                        0.f,
-                                        scrollView.frame.size.width,
-                                        0.f)];
-    [scrollView addSubview:refreshControl];
-    return refreshControl;
+- (void)attachToScrollView:(UIScrollView *)scrollView {
+    self.scrollView = scrollView;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [self setFrame:CGRectMake(0.f, 0.f, scrollView.frame.size.width, 0.f)];
+    [scrollView addSubview:self];
 }
 
 -(void)awakeFromNib{
@@ -112,17 +102,14 @@ static const CGFloat DefaultScreenWidth = 320.f;
         if(!self.forbidSunSet){
             
             [self rotateSunInfinitely];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [self.target performSelector:self.action withObject:self];
-#pragma clang diagnostic pop
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
             self.forbidSunSet = YES;
             
         }
     }
    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
-        [self startRefreshing];
+        [self beginRefreshing];
     }
     
     if(!self.forbidSunSet){
@@ -131,7 +118,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
     }
 }
 
--(void)startRefreshing {
+-(void)beginRefreshing {
     
     [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
