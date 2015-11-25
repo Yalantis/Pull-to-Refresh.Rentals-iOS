@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   s.platform = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'YALTourPullToRefresh/YALSunnyRefreshControll/**/*.{h,m}'
+  s.source_files = 'YALTourPullToRefresh/YALSunnyRefreshControl/**/*.{h,m}'
   s.preserve_path = '*'
-  s.resources = ['YALTourPullToRefresh/YALSunnyRefreshControll/**/*.xib']
+  s.resources = ['YALTourPullToRefresh/YALSunnyRefreshControl/**/*.xib']
 
 end
   
