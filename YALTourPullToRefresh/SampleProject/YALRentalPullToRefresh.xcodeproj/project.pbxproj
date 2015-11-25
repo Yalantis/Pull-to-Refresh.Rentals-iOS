@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90D05F631C061256003FE63B /* YALSunnyRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D05F611C061256003FE63B /* YALSunnyRefreshControl.m */; };
+		90D05F641C061256003FE63B /* YALSunnyRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D05F621C061256003FE63B /* YALSunnyRefreshControl.xib */; };
 		AD18FD971A6804C20080287C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD961A6804C20080287C /* main.m */; };
 		AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD991A6804C20080287C /* AppDelegate.m */; };
 		AD18FDA01A6804C20080287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD18FD9E1A6804C20080287C /* Main.storyboard */; };
@@ -14,8 +16,6 @@
 		AD18FDA51A6804C20080287C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD18FDA31A6804C20080287C /* LaunchScreen.xib */; };
 		AD18FDB11A6804C20080287C /* YALRentalPullToRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDB01A6804C20080287C /* YALRentalPullToRefreshTests.m */; };
 		AD18FDBD1A68054B0080287C /* YALExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDBC1A68054B0080287C /* YALExampleViewController.m */; };
-		AD18FDCE1A680D9C0080287C /* YALSunnyRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */; };
-		AD18FDCF1A680D9C0080287C /* YALSunnyRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90D05F601C061256003FE63B /* YALSunnyRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSunnyRefreshControl.h; sourceTree = "<group>"; };
+		90D05F611C061256003FE63B /* YALSunnyRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSunnyRefreshControl.m; sourceTree = "<group>"; };
+		90D05F621C061256003FE63B /* YALSunnyRefreshControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YALSunnyRefreshControl.xib; sourceTree = "<group>"; };
 		AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YALRentalPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD18FD951A6804C20080287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD18FD961A6804C20080287C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,9 +45,6 @@
 		AD18FDB01A6804C20080287C /* YALRentalPullToRefreshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YALRentalPullToRefreshTests.m; sourceTree = "<group>"; };
 		AD18FDBB1A68054B0080287C /* YALExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALExampleViewController.h; sourceTree = "<group>"; };
 		AD18FDBC1A68054B0080287C /* YALExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALExampleViewController.m; sourceTree = "<group>"; };
-		AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSunnyRefreshControl.h; sourceTree = "<group>"; };
-		AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSunnyRefreshControl.m; sourceTree = "<group>"; };
-		AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YALSunnyRefreshControl.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +65,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90D05F5F1C061256003FE63B /* YALSunnyRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				90D05F601C061256003FE63B /* YALSunnyRefreshControl.h */,
+				90D05F611C061256003FE63B /* YALSunnyRefreshControl.m */,
+				90D05F621C061256003FE63B /* YALSunnyRefreshControl.xib */,
+			);
+			name = YALSunnyRefreshControl;
+			path = ../../YALSunnyRefreshControl;
+			sourceTree = "<group>";
+		};
 		AD18FD881A6804C10080287C = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +97,7 @@
 		AD18FD931A6804C20080287C /* YALRentalPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				AD18FDCA1A680D9C0080287C /* YALSunnyRefreshControll */,
+				90D05F5F1C061256003FE63B /* YALSunnyRefreshControl */,
 				AD18FDBA1A68054B0080287C /* ExampleViewController */,
 				AD18FD981A6804C20080287C /* AppDelegate.h */,
 				AD18FD991A6804C20080287C /* AppDelegate.m */,
@@ -131,17 +142,6 @@
 				AD18FDBC1A68054B0080287C /* YALExampleViewController.m */,
 			);
 			path = ExampleViewController;
-			sourceTree = "<group>";
-		};
-		AD18FDCA1A680D9C0080287C /* YALSunnyRefreshControll */ = {
-			isa = PBXGroup;
-			children = (
-				AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */,
-				AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */,
-				AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */,
-			);
-			name = YALSunnyRefreshControll;
-			path = ../../YALSunnyRefreshControll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +226,7 @@
 			files = (
 				AD18FDA01A6804C20080287C /* Main.storyboard in Resources */,
 				AD18FDA51A6804C20080287C /* LaunchScreen.xib in Resources */,
-				AD18FDCF1A680D9C0080287C /* YALSunnyRefreshControl.xib in Resources */,
+				90D05F641C061256003FE63B /* YALSunnyRefreshControl.xib in Resources */,
 				AD18FDA21A6804C20080287C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +247,7 @@
 			files = (
 				AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */,
 				AD18FD971A6804C20080287C /* main.m in Sources */,
-				AD18FDCE1A680D9C0080287C /* YALSunnyRefreshControl.m in Sources */,
+				90D05F631C061256003FE63B /* YALSunnyRefreshControl.m in Sources */,
 				AD18FDBD1A68054B0080287C /* YALExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
