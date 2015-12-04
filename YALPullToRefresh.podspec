@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, '7.0'
   spec.ios.deployment_target = '7.0'
 
-  spec.source = { :git => "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git", :branch => ‘feature/migrate_to_pod’ }
+
   spec.resource_bundle = {'Assets' => 'YALTourPullToRefresh/YALSunnyRefreshControll/Images.xcassets'}
 
   spec.requires_arc = true
