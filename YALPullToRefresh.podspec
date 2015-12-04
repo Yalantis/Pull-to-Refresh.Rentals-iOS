@@ -13,6 +13,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '7.0'
 
   spec.source = { :git => "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git" }
+  spec.resources = ['YALTourPullToRefresh/YALSunnyRefreshControll/Images/*.{png, jpg}']
 
   spec.requires_arc = true
 
