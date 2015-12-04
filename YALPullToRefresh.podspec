@@ -6,13 +6,13 @@ Pod::Spec.new do |spec|
   spec.summary = "Simple and customizable pull-to-refresh implementation"
 
   spec.author = "Yalantis"
-  spec.license = { :type => "MIT", :file => "LICENSE" }
+  spec.license = { :type => "Apache", :file => "LICENSE" }
   spec.social_media_url = "https://twitter.com/yalantis"
 
   spec.platform = :ios, '7.0'
   spec.ios.deployment_target = '7.0'
 
-  spec.source = { :git => "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git", :tag => "1.0" }
+  spec.source = { :git => "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git" }
 
   spec.requires_arc = true
 
