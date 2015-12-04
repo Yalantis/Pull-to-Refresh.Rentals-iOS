@@ -54,7 +54,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 - (instancetype)initWithFrame:(CGRect)frame {
-    return [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
+    return [[[NSBundle bundleForClass: [YALSunnyRefreshControl class]] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
 }
 
 -(void)dealloc{
