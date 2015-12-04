@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12157BE61C11F7D00073F450 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12157BE51C11F7D00073F450 /* Images.xcassets */; };
 		AD18FD971A6804C20080287C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD961A6804C20080287C /* main.m */; };
 		AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD991A6804C20080287C /* AppDelegate.m */; };
 		AD18FDA01A6804C20080287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD18FD9E1A6804C20080287C /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12157BE51C11F7D00073F450 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YALRentalPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD18FD951A6804C20080287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD18FD961A6804C20080287C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		AD18FDCA1A680D9C0080287C /* YALSunnyRefreshControll */ = {
 			isa = PBXGroup;
 			children = (
+				12157BE51C11F7D00073F450 /* Images.xcassets */,
 				AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */,
 				AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */,
 				AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD18FDA01A6804C20080287C /* Main.storyboard in Resources */,
+				12157BE61C11F7D00073F450 /* Images.xcassets in Resources */,
 				AD18FDA51A6804C20080287C /* LaunchScreen.xib in Resources */,
 				AD18FDCF1A680D9C0080287C /* YALSunnyRefreshControl.xib in Resources */,
 				AD18FDA21A6804C20080287C /* Images.xcassets in Resources */,
