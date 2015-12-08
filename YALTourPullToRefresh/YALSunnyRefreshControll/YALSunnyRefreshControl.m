@@ -61,10 +61,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
     return [NSBundle bundleForClass: [YALSunnyRefreshControl class]];
 }
 
-+ (NSBundle *)imageBundle {
-    return [NSBundle bundleWithIdentifier: @"Assets"];
-}
-
 -(void)dealloc {
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
@@ -84,9 +80,9 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [self.skyLeadingConstraint setConstant:self.skyLeadingConstraint.constant * leadingRatio];
     [self.skyTrailingConstraint setConstant:self.skyTrailingConstraint.constant * leadingRatio];
     
-    self.sunImageView.image = [UIImage imageNamed:@"sun" inBundle: [YALSunnyRefreshControl imageBundle] compatibleWithTraitCollection: nil];
-    self.buildingsImageView.image = [UIImage imageNamed:@"buildings" inBundle: [YALSunnyRefreshControl imageBundle] compatibleWithTraitCollection: nil];
-    self.skyImageView.image = [UIImage imageNamed:@"sky" inBundle: [YALSunnyRefreshControl imageBundle] compatibleWithTraitCollection: nil];
+    self.sunImageView.image = [UIImage imageNamed:@"sun" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
+    self.buildingsImageView.image = [UIImage imageNamed:@"buildings" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
+    self.skyImageView.image = [UIImage imageNamed:@"sky" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
