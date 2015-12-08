@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '7.0'
 
 
-  spec.resource_bundle = {'Assets' => 'YALTourPullToRefresh/YALSunnyRefreshControll/Images.xcassets'}
+  spec.resources = 'YALTourPullToRefresh/YALSunnyRefreshControll/Images.xcassets'
 
   spec.requires_arc = true
 
