@@ -35,7 +35,7 @@
 
 -(void)setupRefreshControl{
     
-    self.sunnyRefreshControl = [YALSunnyRefreshControl new];
+    self.sunnyRefreshControl = [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
     [self.sunnyRefreshControl addTarget:self
                                  action:@selector(sunnyControlDidStartAnimation)
                        forControlEvents:UIControlEventValueChanged];

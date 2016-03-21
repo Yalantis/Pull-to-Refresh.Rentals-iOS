@@ -52,11 +52,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 @implementation YALSunnyRefreshControl
 
-#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
-- (instancetype)initWithFrame:(CGRect)frame {
-    return [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
-}
-
 -(void)dealloc{
     
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
