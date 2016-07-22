@@ -54,11 +54,14 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 - (instancetype)initWithFrame:(CGRect)frame {
-    return [[[NSBundle mainBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
+    return [[[YALSunnyRefreshControl internalBundle] loadNibNamed:@"YALSunnyRefreshControl" owner:self options:nil] firstObject];
 }
 
--(void)dealloc{
-    
++ (NSBundle *)internalBundle {
+    return [NSBundle bundleForClass: [YALSunnyRefreshControl class]];
+}
+
+-(void)dealloc {
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
@@ -77,17 +80,20 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [self.skyLeadingConstraint setConstant:self.skyLeadingConstraint.constant * leadingRatio];
     [self.skyTrailingConstraint setConstant:self.skyTrailingConstraint.constant * leadingRatio];
     
+    self.sunImageView.image = [UIImage imageNamed:@"sun" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
+    self.buildingsImageView.image = [UIImage imageNamed:@"buildings" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
+    self.skyImageView.image = [UIImage imageNamed:@"sky" inBundle: [YALSunnyRefreshControl internalBundle] compatibleWithTraitCollection: nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context{
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context{
     [self calculateShift];
 }
 
 -(void)calculateShift{
-
+    
     [self setFrame:CGRectMake(0.f,
                               0.f,
                               self.scrollView.frame.size.width,
@@ -108,7 +114,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
             
         }
     }
-   
+    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
         [self beginRefreshing];
     }
