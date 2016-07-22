@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name = "YALPullToRefresh"
+  spec.name = "Pull-to-Refresh.Rentals-IOS"
   spec.version = "1.0"
 
   spec.homepage = "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS"
@@ -13,11 +13,11 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '7.0'
 
 
-  spec.resources = 'YALTourPullToRefresh/YALSunnyRefreshControll/Images.xcassets'
+  spec.resources = ['YALTourPullToRefresh/YALSunnyRefreshControll/Images.xcassets', 'YALTourPullToRefresh/**/*.{xib}']
 
   spec.requires_arc = true
 
   spec.source_files = 'YALTourPullToRefresh/YALSunnyRefreshControll/*'
-  spec.public_header_files = 'YALTourPullToRefresh/YALSunnyRefreshControll/*.h'
+  spec.source = { :git => 'https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS.git', :tag => spec.version }
   spec.frameworks = 'UIKit'
 end
