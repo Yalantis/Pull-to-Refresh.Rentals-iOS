@@ -28,21 +28,19 @@ Check this [project on Behance] (https://www.behance.net/gallery/20411445/Mobile
     [self setupRefreshControl];
 }
 
--(void)setupRefreshControl{
-    
-    self.sunnyRefreshControl = [YALSunnyRefreshControl attachToScrollView:self.tableView
-                                                                  target:self
-                                                           refreshAction:@selector(sunnyControlDidStartAnimation)];
-    
+- (void)setupRefreshControl{
+    self.sunnyRefreshControl = [YALSunnyRefreshControl new];
+    [self.sunnyRefreshControl addTarget:self
+                                 action:@selector(sunnyControlDidStartAnimation)
+                       forControlEvents:UIControlEventValueChanged];
+    [self.sunnyRefreshControl attachToScrollView:self.tableView];
 }
 
--(void)sunnyControlDidStartAnimation{
-    
+- (void)sunnyControlDidStartAnimation{
     // start loading something
 }
 
--(IBAction)endAnimationHandle{
-    
+- (IBAction)endAnimationHandle{
     [self.sunnyRefreshControl endRefreshing];
 }
 
