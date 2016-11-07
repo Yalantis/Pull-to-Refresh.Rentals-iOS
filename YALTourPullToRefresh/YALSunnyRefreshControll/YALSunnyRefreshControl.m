@@ -99,7 +99,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
                               self.scrollView.frame.size.width,
                               self.scrollView.contentOffset.y)];
     
-    if(self.scrollView.contentOffset.y <= -DefaultHeight){
+    if(self.scrollView.contentOffset.y < -DefaultHeight){
         
         if(self.scrollView.contentOffset.y < -SpringTreshold){
             
@@ -109,15 +109,17 @@ static const CGFloat DefaultScreenWidth = 320.f;
         if(!self.forbidSunSet){
             
             [self rotateSunInfinitely];
-            [self sendActionsForControlEvents:UIControlEventValueChanged];
             self.forbidSunSet = YES;
             
         }
+
+        if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+            [self beginRefreshing];
+        }
     }
     
-    if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
-        [self beginRefreshing];
-    }
+
     
     if(!self.forbidSunSet){
         [self setupSunHeightAboveHorisont];
