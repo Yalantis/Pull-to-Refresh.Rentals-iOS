@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "Pull-to-Refresh.Rentals-IOS"
-  spec.version = "1.0"
+  spec.version = "1.1"
 
   spec.homepage = "https://github.com/Yalantis/Pull-to-Refresh.Rentals-iOS"
   spec.summary = "Simple and customizable pull-to-refresh implementation"
