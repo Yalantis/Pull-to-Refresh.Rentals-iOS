@@ -98,7 +98,10 @@ static const CGFloat DefaultScreenWidth = 320.f;
                               0.f,
                               self.scrollView.frame.size.width,
                               self.scrollView.contentOffset.y)];
-    
+    if(!self.forbidSunSet){
+        [self setupSunHeightAboveHorisont];
+        [self setupSkyPosition];
+    }
     if(self.scrollView.contentOffset.y <= -DefaultHeight){
         
         if(self.scrollView.contentOffset.y < -SpringTreshold){
@@ -114,14 +117,8 @@ static const CGFloat DefaultScreenWidth = 320.f;
             
         }
     }
-    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
         [self beginRefreshing];
-    }
-    
-    if(!self.forbidSunSet){
-        [self setupSunHeightAboveHorisont];
-        [self setupSkyPosition];
     }
 }
 
