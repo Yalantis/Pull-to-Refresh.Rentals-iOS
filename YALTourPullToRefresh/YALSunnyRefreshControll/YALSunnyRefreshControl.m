@@ -7,6 +7,7 @@
 //
 
 #import "YALSunnyRefreshControl.h"
+#import "UIScrollView+Effective.h"
 
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
@@ -124,14 +125,14 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 -(void)beginRefreshing {
     
-    [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
+    [self.scrollView setEffectiveContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
     [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
     self.forbidContentInsetChanges = YES;
 }
 
 -(void)endRefreshing{
     
-    if(self.scrollView.contentOffset.y > -DefaultHeight){
+    if(self.scrollView.normalizedContentOffset.y > -DefaultHeight){
         
         [self performSelector:@selector(returnToDefaultState) withObject:nil afterDelay:AnimationDuration];
     }else{
@@ -148,7 +149,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
           initialSpringVelocity:AnimationVelosity
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
+                         [self.scrollView setEffectiveContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
                      } completion:nil];
     self.forbidSunSet = NO;
     [self stopSunRotating];

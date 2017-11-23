@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12157BE61C11F7D00073F450 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12157BE51C11F7D00073F450 /* Images.xcassets */; };
+		A53FBD4E1FB2F4F700C11B8E /* UIScrollView+Effective.m in Sources */ = {isa = PBXBuildFile; fileRef = A53FBD4D1FB2F4F700C11B8E /* UIScrollView+Effective.m */; };
 		AD18FD971A6804C20080287C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD961A6804C20080287C /* main.m */; };
 		AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18FD991A6804C20080287C /* AppDelegate.m */; };
 		AD18FDA01A6804C20080287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD18FD9E1A6804C20080287C /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		12157BE51C11F7D00073F450 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A53FBD4C1FB2F4F700C11B8E /* UIScrollView+Effective.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Effective.h"; sourceTree = "<group>"; };
+		A53FBD4D1FB2F4F700C11B8E /* UIScrollView+Effective.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Effective.m"; sourceTree = "<group>"; };
 		AD18FD911A6804C20080287C /* YALRentalPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YALRentalPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD18FD951A6804C20080287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD18FD961A6804C20080287C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				AD18FDCB1A680D9C0080287C /* YALSunnyRefreshControl.h */,
 				AD18FDCC1A680D9C0080287C /* YALSunnyRefreshControl.m */,
 				AD18FDCD1A680D9C0080287C /* YALSunnyRefreshControl.xib */,
+				A53FBD4C1FB2F4F700C11B8E /* UIScrollView+Effective.h */,
+				A53FBD4D1FB2F4F700C11B8E /* UIScrollView+Effective.m */,
 			);
 			name = YALSunnyRefreshControll;
 			path = ../../YALSunnyRefreshControll;
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53FBD4E1FB2F4F700C11B8E /* UIScrollView+Effective.m in Sources */,
 				AD18FD9A1A6804C20080287C /* AppDelegate.m in Sources */,
 				AD18FD971A6804C20080287C /* main.m in Sources */,
 				AD18FDCE1A680D9C0080287C /* YALSunnyRefreshControl.m in Sources */,
