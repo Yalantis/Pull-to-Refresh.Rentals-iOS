@@ -44,14 +44,28 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic,weak) IBOutlet UIImageView *sunImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *skyImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *buildingsImageView;
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,assign) BOOL forbidSunSet;
 @property (nonatomic,assign) BOOL isSunRotating;
 @property (nonatomic,assign) BOOL forbidContentInsetChanges;
+@property (nonatomic,assign,readonly) UIEdgeInsets scrollViewDefaultInsets;
 
 @end
 
 @implementation YALSunnyRefreshControl
+{
+    UIEdgeInsets _scrollViewDefaultInsets;
+}
+
+-(UIEdgeInsets)scrollViewDefaultInsets{
+    if (UIEdgeInsetsEqualToEdgeInsets(_scrollViewDefaultInsets, UIEdgeInsetsZero)) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _scrollViewDefaultInsets = self.scrollView.effectiveContentInset;
+        });
+    }
+    return _scrollViewDefaultInsets;
+}
 
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -68,6 +82,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 - (void)attachToScrollView:(UIScrollView *)scrollView {
     self.scrollView = scrollView;
+    self.scrollView.topBounceLimit = -SpringTreshold;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     [self setFrame:CGRectMake(0.f, 0.f, scrollView.frame.size.width, 0.f)];
     [scrollView addSubview:self];
@@ -76,7 +91,6 @@ static const CGFloat DefaultScreenWidth = 320.f;
 -(void)awakeFromNib{
     
     [super awakeFromNib];
-    
     CGFloat leadingRatio = [UIScreen mainScreen].bounds.size.width / DefaultScreenWidth;
     [self.skyLeadingConstraint setConstant:self.skyLeadingConstraint.constant * leadingRatio];
     [self.skyTrailingConstraint setConstant:self.skyTrailingConstraint.constant * leadingRatio];
@@ -93,22 +107,18 @@ static const CGFloat DefaultScreenWidth = 320.f;
     [self calculateShift];
 }
 
+-(CGFloat)calculateOffset{
+    return self.scrollView.contentOffset.y + self.scrollViewDefaultInsets.top;
+}
+
 -(void)calculateShift{
-    
+    CGFloat offsetY = [self calculateOffset];
     [self setFrame:CGRectMake(0.f,
                               0.f,
                               self.scrollView.frame.size.width,
-                              self.scrollView.contentOffset.y)];
-    if(!self.forbidSunSet){
-        [self setupSunHeightAboveHorisont];
-        [self setupSkyPosition];
-    }
-    if(self.scrollView.contentOffset.y <= -DefaultHeight){
+                              offsetY)];
+    if(offsetY <= -DefaultHeight){
         
-        if(self.scrollView.contentOffset.y < -SpringTreshold){
-            
-            [self.scrollView setContentOffset:CGPointMake(0.f, -SpringTreshold)];
-        }
         [self scaleItems];
         if(!self.forbidSunSet){
             
@@ -118,22 +128,25 @@ static const CGFloat DefaultScreenWidth = 320.f;
             
         }
     }
+    
     if(!self.scrollView.dragging && self.forbidSunSet && self.scrollView.decelerating && !self.forbidContentInsetChanges){
         [self beginRefreshing];
     }
+    
+    if(!self.forbidSunSet){
+        [self setupSunHeightAboveHorisont];
+        [self setupSkyPosition];
+    }
 }
 
--(void)beginRefreshing {
-    
-    [self.scrollView setEffectiveContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
-    [self.scrollView setContentOffset:CGPointMake(0.f, -DefaultHeight) animated:YES];
+-(void)beginRefreshing{
+    [self.scrollView setContentInset:UIEdgeInsetsMake(DefaultHeight, 0.f, 0.f, 0.f)];
+    [self.scrollView setContentOffset:CGPointMake(0.f, -(DefaultHeight + self.scrollViewDefaultInsets.top)) animated:YES];
     self.forbidContentInsetChanges = YES;
 }
 
 -(void)endRefreshing{
-    
     if(self.scrollView.normalizedContentOffset.y > -DefaultHeight){
-        
         [self performSelector:@selector(returnToDefaultState) withObject:nil afterDelay:AnimationDuration];
     }else{
         [self returnToDefaultState];
@@ -149,7 +162,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
           initialSpringVelocity:AnimationVelosity
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         [self.scrollView setEffectiveContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
+                         [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
                      } completion:nil];
     self.forbidSunSet = NO;
     [self stopSunRotating];
@@ -157,7 +170,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 
 -(void)setupSunHeightAboveHorisont{
     
-    CGFloat shiftInPercents = [self shiftInPercents];
+    CGFloat shiftInPercents = [self shiftInPercentsWithOffset:[self calculateOffset]];
     CGFloat sunWay = SunBottomPoint - SunTopPoint;
     CGFloat sunYCoordinate = SunBottomPoint - (sunWay / 100) * shiftInPercents;
     [self.sunTopConstraint setConstant:sunYCoordinate];
@@ -166,26 +179,26 @@ static const CGFloat DefaultScreenWidth = 320.f;
     self.sunImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(rotationAngle));
 }
 
--(CGFloat)shiftInPercents{
+-(CGFloat)shiftInPercentsWithOffset:(CGFloat)offset{
     
-    return (DefaultHeight / 100) * -self.scrollView.contentOffset.y;
+    return (DefaultHeight / 100) * -offset;
 }
 
 -(void)setupSkyPosition{
     
-    CGFloat shiftInPercents = [self shiftInPercents];
+    CGFloat shiftInPercents = [self shiftInPercentsWithOffset:[self calculateOffset]];
     CGFloat skyTopConstant = SkyDefaultShift + ((SkyTopShift / 100) * shiftInPercents);
     [self.skyTopConstraint setConstant:skyTopConstant];
 }
 
 -(void)scaleItems{
     
-    CGFloat shiftInPercents = [self shiftInPercents];
+    CGFloat shiftInPercents = [self shiftInPercentsWithOffset:[self calculateOffset]];
     CGFloat buildigsScaleRatio = shiftInPercents / 100;
     
     if(buildigsScaleRatio <= BuildingsMaximumScale){
         
-        CGFloat extraOffset = ABS(self.scrollView.contentOffset.y) - DefaultHeight;
+        CGFloat extraOffset = ABS(self.scrollView.contentOffset.y + self.scrollViewDefaultInsets.top) - DefaultHeight;
         self.buildingsHeightConstraint.constant = BuildingDefaultHeight + extraOffset;
         [self.buildingsImageView setTransform:CGAffineTransformMakeScale(buildigsScaleRatio,1.f)];
         

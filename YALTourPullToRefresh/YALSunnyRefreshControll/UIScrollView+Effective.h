@@ -10,7 +10,8 @@
 
 @interface UIScrollView (Effective)
 
-@property (nonatomic, assign, readonly) CGPoint normalizedContentOffset;
+@property (nonatomic, assign, readwrite) CGPoint normalizedContentOffset;
 @property (nonatomic, assign, readwrite) UIEdgeInsets effectiveContentInset;
+@property (nonatomic, assign, readwrite) CGFloat topBounceLimit;
 
 @end
