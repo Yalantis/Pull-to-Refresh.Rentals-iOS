@@ -12,6 +12,9 @@
 
 - (void)attachToScrollView:(UIScrollView *)scrollView;
 
+// should call this method to avoid crash
+- (void)unAttachToScrollView;
+
 - (void)beginRefreshing;
 
 - (void)endRefreshing;
