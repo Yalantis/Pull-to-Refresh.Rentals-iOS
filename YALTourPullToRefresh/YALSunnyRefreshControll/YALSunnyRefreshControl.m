@@ -43,7 +43,7 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic,weak) IBOutlet UIImageView *sunImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *skyImageView;
 @property (nonatomic,weak) IBOutlet UIImageView *buildingsImageView;
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic,assign) BOOL forbidSunSet;
 @property (nonatomic,assign) BOOL isSunRotating;
 @property (nonatomic,assign) BOOL forbidContentInsetChanges;
@@ -62,14 +62,33 @@ static const CGFloat DefaultScreenWidth = 320.f;
 }
 
 -(void)dealloc {
-    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+    @try {
+        if (_scrollView) {
+            [_scrollView removeObserver:self forKeyPath:@"contentOffset"];
+        }
+    } @catch (NSException *exception) {}
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(returnToDefaultState) object:nil];
 }
 
 - (void)attachToScrollView:(UIScrollView *)scrollView {
-    self.scrollView = scrollView;
-    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    [self setFrame:CGRectMake(0.f, 0.f, scrollView.frame.size.width, 0.f)];
-    [scrollView addSubview:self];
+    if (!scrollView.superview) {
+        self.scrollView = scrollView;
+        [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        [self setFrame:CGRectMake(0.f, 0.f, scrollView.frame.size.width, 0.f)];
+        [scrollView addSubview:self];
+    }
+}
+
+- (void)unAttachToScrollView {
+    if (self.superview) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(returnToDefaultState) object:nil];
+        [self returnToDefaultState];
+        @try {
+            [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+        } @catch (NSException *exception) {}
+        self.scrollView = nil;
+        [self removeFromSuperview];
+    }
 }
 
 -(void)awakeFromNib{
@@ -133,9 +152,8 @@ static const CGFloat DefaultScreenWidth = 320.f;
 }
 
 -(void)endRefreshing{
-    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(returnToDefaultState) object:nil];
     if(self.scrollView.contentOffset.y > -DefaultHeight){
-        
         [self performSelector:@selector(returnToDefaultState) withObject:nil afterDelay:AnimationDuration];
     }else{
         [self returnToDefaultState];
