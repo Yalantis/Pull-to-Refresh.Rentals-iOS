@@ -48,6 +48,9 @@ static const CGFloat DefaultScreenWidth = 320.f;
 @property (nonatomic,assign) BOOL isSunRotating;
 @property (nonatomic,assign) BOOL forbidContentInsetChanges;
 
+/* Record the original frame */
+@property (nonatomic, assign) UIEdgeInsets originalContentInset;
+
 @end
 
 @implementation YALSunnyRefreshControl
@@ -120,6 +123,13 @@ static const CGFloat DefaultScreenWidth = 320.f;
     
     if(self.scrollView.contentOffset.y <= -DefaultHeight){
         
+        // Record Right now ~~
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            self.originalContentInset = self.scrollView.contentInset;
+            NSLog(@"++%@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
+        });
+        
         if(self.scrollView.contentOffset.y < -SpringTreshold){
             
             [self.scrollView setContentOffset:CGPointMake(0.f, -SpringTreshold)];
@@ -169,7 +179,11 @@ static const CGFloat DefaultScreenWidth = 320.f;
           initialSpringVelocity:AnimationVelosity
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
+                         
+                         // [self.scrollView setContentInset:UIEdgeInsetsMake(0, 0.f, 0.f, 0.f)];
+                         
+                         // restore that original ContentInset ～
+                         [self.scrollView setContentInset:self.originalContentInset];
                      } completion:nil];
     self.forbidSunSet = NO;
     [self stopSunRotating];
