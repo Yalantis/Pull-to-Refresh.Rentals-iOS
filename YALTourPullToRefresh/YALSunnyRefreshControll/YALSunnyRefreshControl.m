@@ -58,7 +58,12 @@ static const CGFloat DefaultScreenWidth = 320.f;
 }
 
 + (NSBundle *)internalBundle {
+#ifdef SWIFTPM_MODULE_BUNDLE
+    // Swift Package Manager keeps the xib and image set in a separate resource bundle.
+    return SWIFTPM_MODULE_BUNDLE;
+#else
     return [NSBundle bundleForClass: [YALSunnyRefreshControl class]];
+#endif
 }
 
 -(void)dealloc {
